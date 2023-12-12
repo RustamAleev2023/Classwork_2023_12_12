@@ -6,7 +6,9 @@ public class Main {
 //        task1();
 //        task2();
 //        task3();
-        task4();
+//        task4();
+//        task5();
+        task6();
 
     }
 
@@ -84,4 +86,34 @@ public class Main {
         }
         System.out.println(Arrays.toString(arr));
     }
+
+    //Task5
+    public static void task5(){
+        Random random = new Random();
+        int[] arr1 = new int[5];
+        int[] arr2 = new int[5];
+        int sum1 = 0;
+        int sum2 = 0;
+
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = random.nextInt(5);
+            arr2[i] = random.nextInt(5);
+            sum1 += arr1[i];
+            sum2 += arr2[i];
+        }
+
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+
+        int difference = (sum1 / arr1.length) - (sum2 / arr2.length);
+        if(difference > 0){
+            System.out.println("Cреднее арифметическое массива arr1 больше");
+        } else if( difference < 0){
+            System.out.println("Cреднее арифметическое массива arr2 больше");
+        } else {
+            System.out.println("Cредние арифметические обоих массивов равны");
+        }
+    }
+
+    //Task6
 }
