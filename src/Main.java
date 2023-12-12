@@ -8,7 +8,8 @@ public class Main {
 //        task3();
 //        task4();
 //        task5();
-        task6();
+//        task6();
+        task7();
 
     }
 
@@ -145,5 +146,30 @@ public class Main {
        } else {
            System.out.println("Массив не является строго возрастающей последовательностью");
        }
+    }
+
+    //Task7
+    public static void task7(){
+        int maxLimit = 1_000_000;
+        int a = 0;
+        int b = 1;
+        int c;
+
+        int[] arr = new int[20];
+        int index = 0;
+        int count = 0;
+
+        while (a <= maxLimit && count < 20) {
+            if (a > 0) {
+                arr[index] = a;
+                c = a + b;
+                a = b;
+                b = c;
+                count++;
+                index++;
+            } else a++;
+
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
