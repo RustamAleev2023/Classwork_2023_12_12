@@ -9,7 +9,8 @@ public class Main {
 //        task4();
 //        task5();
 //        task6();
-        task7();
+//        task7();
+        task8();
 
     }
 
@@ -171,5 +172,26 @@ public class Main {
 
         }
         System.out.println(Arrays.toString(arr));
+    }
+
+    //Task8
+    public static void task8(){
+        Random random = new Random();
+        int[] arr = new int[12];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(-15, 15);
+        }
+        System.out.println(Arrays.toString(arr));
+        int index = 0;
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] > max){
+                max = arr[i];
+                index = i;
+            }
+        }
+        System.out.println("Индекс максимального элемента равен " + index);
     }
 }
