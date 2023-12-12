@@ -11,7 +11,8 @@ public class Main {
 //        task6();
 //        task7();
 //        task8();
-        task9();
+//        task9();
+        task10();
 
     }
 
@@ -197,6 +198,34 @@ public class Main {
     }
 
     public static void task9(){
+        Random random = new Random();
+        int[] arr1 = new int[10];
+        int[] arr2 = new int[10];
+        double[] arr3 = new double[10];
+
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = random.nextInt(1, 9);
+            arr2[i] = random.nextInt(1, 9);
+        }
+
+        for (int i = 0; i < arr3.length; i++) {
+            arr3[i] = (double) arr1[i]/arr2[i];
+        }
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr3));
+        int count = 0;
+
+        for (int i = 0; i < arr3.length; i++) {
+            if(arr3[i] % 1 == 0 && arr3[i] != 0){
+                count++;
+            }
+        }
+        System.out.println("Кол-во целых элементов в третьем массиве = " + count);
+    }
+
+    //Task10
+    public static void task10(){
         Random random = new Random();
         int[] arr1 = new int[10];
         int[] arr2 = new int[10];
