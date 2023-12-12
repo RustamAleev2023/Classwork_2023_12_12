@@ -1,9 +1,11 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
 //        task1();
-        task2();
+//        task2();
+        task3();
 
     }
 
@@ -47,5 +49,21 @@ public class Main {
         for (int i = arr.length - 1; i >= 0 ; i--) {
             System.out.print(arr[i] + " ");
         }
+    }
+
+    //Task3
+    public static void task3(){
+        Random random = new Random();
+        int[] arr = new int[15];
+        int count=0;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(9);
+            if(arr[i] %2 == 0){
+                count++;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        System.out.println("В массиве " + count + " четных чисел.");
+
     }
 }
