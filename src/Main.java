@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +13,8 @@ public class Main {
 //        task7();
 //        task8();
 //        task9();
-        task10();
+//        task10();
+        task11();
 
     }
 
@@ -136,7 +138,7 @@ public class Main {
         boolean result;
 
         for (int i = 1; i < arr.length; i++) {
-            if(arr[i-1] < arr[i]){
+            if (arr[i - 1] < arr[i]) {
                 isGrow[index] = true;
             } else {
                 isGrow[index] = false;
@@ -144,15 +146,15 @@ public class Main {
             index++;
         }
         result = isGrow[0] && isGrow[1] && isGrow[2];
-       if (result){
-           System.out.println("Массив является строго возрастающей последовательностью");
-       } else {
-           System.out.println("Массив не является строго возрастающей последовательностью");
-       }
+        if (result) {
+            System.out.println("Массив является строго возрастающей последовательностью");
+        } else {
+            System.out.println("Массив не является строго возрастающей последовательностью");
+        }
     }
 
     //Task7
-    public static void task7(){
+    public static void task7() {
         int maxLimit = 1_000_000;
         int a = 0;
         int b = 1;
@@ -177,7 +179,7 @@ public class Main {
     }
 
     //Task8
-    public static void task8(){
+    public static void task8() {
         Random random = new Random();
         int[] arr = new int[12];
 
@@ -189,7 +191,7 @@ public class Main {
         int max = Integer.MIN_VALUE;
 
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] > max){
+            if (arr[i] > max) {
                 max = arr[i];
                 index = i;
             }
@@ -197,7 +199,7 @@ public class Main {
         System.out.println("Индекс максимального элемента равен " + index);
     }
 
-    public static void task9(){
+    public static void task9() {
         Random random = new Random();
         int[] arr1 = new int[10];
         int[] arr2 = new int[10];
@@ -209,7 +211,7 @@ public class Main {
         }
 
         for (int i = 0; i < arr3.length; i++) {
-            arr3[i] = (double) arr1[i]/arr2[i];
+            arr3[i] = (double) arr1[i] / arr2[i];
         }
         System.out.println(Arrays.toString(arr1));
         System.out.println(Arrays.toString(arr2));
@@ -217,7 +219,7 @@ public class Main {
         int count = 0;
 
         for (int i = 0; i < arr3.length; i++) {
-            if(arr3[i] % 1 == 0 && arr3[i] != 0){
+            if (arr3[i] % 1 == 0 && arr3[i] != 0) {
                 count++;
             }
         }
@@ -225,7 +227,7 @@ public class Main {
     }
 
     //Task10
-    public static void task10(){
+    public static void task10() {
         Random random = new Random();
         int[] arr1 = new int[10];
         int[] arr2 = new int[10];
@@ -237,7 +239,7 @@ public class Main {
         }
 
         for (int i = 0; i < arr3.length; i++) {
-            arr3[i] = (double) arr1[i]/arr2[i];
+            arr3[i] = (double) arr1[i] / arr2[i];
         }
         System.out.println(Arrays.toString(arr1));
         System.out.println(Arrays.toString(arr2));
@@ -245,10 +247,49 @@ public class Main {
         int count = 0;
 
         for (int i = 0; i < arr3.length; i++) {
-            if(arr3[i] % 1 == 0 && arr3[i] != 0){
+            if (arr3[i] % 1 == 0 && arr3[i] != 0) {
                 count++;
             }
         }
         System.out.println("Кол-во целых элементов в третьем массиве = " + count);
+    }
+
+    //Task11
+    public static void task11() {
+        Scanner scanner = new Scanner(System.in);
+        int size;
+        while (true) {
+            System.out.println("Введите четное положительное число");
+            size = scanner.nextInt();
+            if (size % 2 == 0) {
+                break;
+            }
+        }
+        int[] arr = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(-5, 5);
+        }
+        System.out.println(Arrays.toString(arr));
+
+        int sumLeftNum = 0;
+        int sumRightNum = 0;
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            sumLeftNum += arr[i];
+            sumRightNum += arr[arr.length - 1 - i];
+        }
+
+        int difference = sumLeftNum - sumRightNum;
+        if (difference > 0) {
+            System.out.println("Левая половина больше");
+        } else if (difference < 0) {
+            System.out.println("Правая половина больше");
+        } else {
+            System.out.println("Обе половины равны");
+        }
+
+
     }
 }
