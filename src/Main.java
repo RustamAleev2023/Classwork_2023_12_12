@@ -19,7 +19,8 @@ public class Main {
 //        task13();
 //        task14();
 //        task15();
-        task16();
+//        task16();
+        task17();
 
     }
 
@@ -464,5 +465,43 @@ public class Main {
         }
         System.out.println("Индекс строки с наибольшим по модулю произведением \n" +
                 "элементов равен " + indexOfRow);
+    }
+
+    //Task17
+    //Создать двумерный массив из 6 строк по 7 столбцов
+    //в каждой из случайных целых чисел из отрезка [0;9].
+    //Вывести массив на экран. Преобразовать массив таким
+    //образом, чтобы на первом месте в каждой строке стоял
+    //её наибольший элемент. При этом изменять состав массива
+    //нельзя, а можно только переставлять элементы в рамках
+    //одной строки. Порядок остальных элементов строки не
+    //важен (т.е. можно соврешить только одну перестановку,
+    //а можно отсортировать по убыванию каждую строку).
+    //Вывести преобразованный массив на экран.
+    public static void task17(){
+        int[][] arr = new int[6][7];
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = random.nextInt(9);
+                System.out.print(arr[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            Arrays.sort(arr[i]);
+            int temp = arr[i][0];
+            arr[i][0] = arr[i][arr[i].length -1];
+            arr[i][arr[i].length -1] = temp;
+        }
+        System.out.println("=========================");
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
     }
 }
