@@ -18,7 +18,8 @@ public class Main {
 //        task12();
 //        task13();
 //        task14();
-        task15();
+//        task15();
+        task16();
 
     }
 
@@ -432,4 +433,36 @@ public class Main {
         System.out.println("Максимальное значение равно " + max);
     }
 
+    //Task16
+    //Cоздать двумерный массив из 7 строк по 4 столбца
+    //в каждой из случайных целых чисел из отрезка [-5;5].
+    //Вывести массив на экран. Определить и вывести на экран
+    //индекс строки с наибольшим по модулю произведением
+    //элементов. Если таких строк несколько, то вывести
+    //индекс первой встретившейся из них.
+    public static void task16(){
+        int[][] arr = new int[7][4];
+        Random random = new Random();
+        int maxMultiply = 0;
+        int tempMultiply;
+        int indexOfRow = 0;
+        for (int i = 0; i < arr.length; i++) {
+            tempMultiply = 1;
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = random.nextInt(-5, 5);
+                tempMultiply *= arr[i][j];
+                if (tempMultiply < 0){
+                    tempMultiply *= -1;
+                }
+                System.out.print(arr[i][j] + "\t");
+            }
+            if(tempMultiply > maxMultiply){
+                maxMultiply = tempMultiply;
+                indexOfRow = i;
+            }
+            System.out.println();
+        }
+        System.out.println("Индекс строки с наибольшим по модулю произведением \n" +
+                "элементов равен " + indexOfRow);
+    }
 }
