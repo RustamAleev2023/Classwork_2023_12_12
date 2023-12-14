@@ -14,7 +14,8 @@ public class Main {
 //        task8();
 //        task9();
 //        task10();
-        task11();
+//        task11();
+        task12();
 
     }
 
@@ -289,7 +290,39 @@ public class Main {
         } else {
             System.out.println("Обе половины равны");
         }
+    }
+    //Task12
+    public static void task12(){
+        int randomSize = 21, negativeCount = 0, positiveCount = 0;
+        int[] arr = new int[12];
+        Random random = new Random();
+
+        do {
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = random.nextInt(randomSize) + -10;
+            //нули не добавляем
+                if (arr[i] == 0) {
+                    i--;
+                }
+                if (arr[i] < 0) {//увеличиваем счетчик отрицательных чисел
+                    negativeCount++;
+                }
+                if (arr[i] > 0) {//увеличиваем счетчик положительных чисел
+                    positiveCount++;
+                }
+
+                if (i == arr.length - 1 & positiveCount != arr.length / 2) {
+                    positiveCount = 0;
+                    negativeCount = 0;
+                }
+
+            }
 
 
+        } while (positiveCount != arr.length / 2 && negativeCount != arr.length / 2);//точка выхода из цикла - число
+        // положительных равно числу отрицательных элементов
+
+        //Вывод на печать
+        System.out.println(Arrays.toString(arr));
     }
 }
