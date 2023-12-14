@@ -15,7 +15,8 @@ public class Main {
 //        task9();
 //        task10();
 //        task11();
-        task12();
+//        task12();
+        task13();
 
     }
 
@@ -291,8 +292,9 @@ public class Main {
             System.out.println("Обе половины равны");
         }
     }
+
     //Task12
-    public static void task12(){
+    public static void task12() {
         int randomSize = 21, negativeCount = 0, positiveCount = 0;
         int[] arr = new int[12];
         Random random = new Random();
@@ -300,7 +302,7 @@ public class Main {
         do {
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = random.nextInt(randomSize) + -10;
-            //нули не добавляем
+                //нули не добавляем
                 if (arr[i] == 0) {
                     i--;
                 }
@@ -324,5 +326,51 @@ public class Main {
 
         //Вывод на печать
         System.out.println(Arrays.toString(arr));
+    }
+
+    //Task13
+    public static void task13() {
+        Scanner scanner = new Scanner(System.in);
+        int n;
+        while (true) {
+            System.out.println("Введите натуральное число больше 3");
+            n = Integer.parseInt(scanner.next());
+            if (n > 3) {
+                break;
+            } else {
+                System.out.println("Вы ввели неверное число");
+            }
+        }
+        //создаем массив длиной n
+        int[] arr = new int[n];
+
+        Random random = new Random();
+        //создаем временный массив длинной n;
+        //заполняем его значениями -1, в дальнейшем его будем заполнять четными элементами массива arr
+        int tempIndex = 0;
+        int[] temp = new int[n];
+        Arrays.fill(temp, -1);
+
+        //заполняем массив arr случайными числами в диапазоне [0, n]
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(n);
+            if(arr[i] %2==0){
+                temp[tempIndex] = arr[i];
+                tempIndex++;
+            }
+        }
+
+        int index = 0;
+        //ищем индекс первого -1
+        for (int i = 0; i < temp.length; i++) {
+            if(temp[i] == -1){
+                index = i;
+                break;
+            }
+        }
+        System.out.println(index);
+        //обрезаем tem от 0 до первого элемента -1
+        int[] arrWithEvenNum = Arrays.copyOfRange(temp, 0, index);
+        System.out.println(Arrays.toString(arrWithEvenNum));
     }
 }
